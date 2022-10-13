@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   
   constructor(private servizioCarrello:ServizioCarrelloService) 
   { 
-
+  
   }
 
   ngOnInit(): void {
