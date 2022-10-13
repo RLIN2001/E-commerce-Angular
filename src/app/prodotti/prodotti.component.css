@@ -1,0 +1,9 @@
+.card{
+    height: 500px;
+    text-align: center;
+}
+
+.div-quantity{
+    display: flex;
+    justify-content: space-between; 
+}

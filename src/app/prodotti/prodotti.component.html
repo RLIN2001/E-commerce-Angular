@@ -1,0 +1,25 @@
+  <div class="lista container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+       <div class="col" *ngFor="let item of prodotti">
+          <div class="card h-100 shadow-sm">
+             <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="..."> 
+             <div class="card-body">
+                <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">{{item.categoria}}</span> <span class="float-end price-hp">{{item.prezzo}}&euro;</span> </div>
+                <h5 class="card-title">{{item.nome}}</h5>
+                <h5></h5>
+                
+                <br>
+                <div class="div-quantity">
+                  <button type="button" [disabled]="item.count==0"   (click)="decremento(item)" class="btn" ><i class="fa fa-minus"></i></button>
+                  <h3 >{{item.count}}</h3>
+                  <button type="button" class="btn" (click)="incremento(item)"><i class="fa fa-plus"></i></button>
+
+                </div>
+                  <br>
+                <button style="height: 60px;" [disabled]="item.count==0" class="btn btn-warning" (click)="aggiungiAlCarrello(item)">Aggiungi al carrello</button> </div>
+              </div>
+              
+           </div>
+        </div>
+  </div>
+    
