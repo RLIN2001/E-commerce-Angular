@@ -33,7 +33,6 @@ export class ServizioCarrelloService {
     //contiene gli stessi elementi della listaProdittiCarrello
     this.listaProdotti.next(this.listaProdottiCarrello)
 
-    console.log(this.listaProdottiCarrello)
   }
 
 

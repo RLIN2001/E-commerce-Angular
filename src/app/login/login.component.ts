@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControlDirective, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Utente } from '../dati/tipoUtenti';
 import { AuthService } from '../service/auth.service';
 import { UtentiService } from '../service/utenti.service';
 
@@ -11,7 +12,12 @@ import { UtentiService } from '../service/utenti.service';
 export class LoginComponent implements OnInit {
 
   form:FormGroup
-  erroreDati=false
+  Error=false
+  listaUtente:Utente[]=[]
+
+  username=""
+  password=""
+  
 
   constructor(private auth:AuthService,private utentiService:UtentiService) { 
 
@@ -19,6 +25,11 @@ export class LoginComponent implements OnInit {
       username:new FormControl(null,Validators.required),
       password: new FormControl(null,Validators.required)
     })
+
+    this.listaUtente=this.auth.getUsers()
+
+
+
   }
 
   onSubmit(){
@@ -30,19 +41,24 @@ export class LoginComponent implements OnInit {
   }
 
   accedi() {
+    this.username=this.form.value.username
+    this.password=this.form.value.password
+    
 
-    for(let item of this.utentiService._utenti)
+    for(let item of this.listaUtente)
     {
-      if(this.form.value.username==item.username && this.form.value.password==item.password)
-      {
-        //this.auth.login()
-        this.auth.loginUser(item)
-        break
-      }
-      else
-        this.erroreDati=true
 
+        if(item.username==this.username && item.password==this.password)
+        {
+          this.auth.loginUser(item)
+          this.Error=false
+          break
+        }
+        else
+        this.Error=true
     }
+    if(this.Error)
+    this.form.reset()
 
 
   }

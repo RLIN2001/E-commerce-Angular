@@ -9,19 +9,29 @@ import { UtentiService } from './utenti.service';
 })
 export class AuthService {
 
-  utente?:Utente
-   user= new BehaviorSubject<any>([])
-
+  user= new BehaviorSubject<any>([])
+  lista:Utente[]=[]
   loginIn=false
+
   constructor(private router:Router,private utenti:UtentiService) { 
-
+    this.lista=utenti._utenti
   }
-
-
 
 
   getUser(){
     return this.user.asObservable()
+  }
+
+
+
+  getUsers(){
+      return this.lista
+  }
+
+
+
+  addUser(user:Utente){
+  this.lista.push(user)
   }
 
 
@@ -35,10 +45,6 @@ export class AuthService {
     }
   
 
-  login(){
-    this.loginIn=true
-    this.router.navigate(['/'])
-  }
 
   logout(){
     this.loginIn=false
@@ -46,9 +52,12 @@ export class AuthService {
   }
 
   loginUser(item:Utente){
-
     this.user.next(item)
     this.loginIn=true
     this.router.navigate(['/'])
   }
+
+  
+
+  
 }

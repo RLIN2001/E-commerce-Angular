@@ -1,0 +1,38 @@
+<br>
+<div *ngIf="errore" class="container" style="max-width: 350px;" >
+  <div class="alert alert-danger" role="alert">
+    Riprova! le due password inserite non sono identiche
+  </div>
+  </div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="container justify-content-center cont-form">
+    <h1 style="text-align:center;">Registrazione</h1><br>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" formControlName="username">
+        <label for="floatingInput">Username</label><br>
+    
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingEmail" formControlName="email">
+            <label for="floatingEmail">Email</label>
+        </div><br>
+
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" formControlName="password">
+        <label for="floatingPassword">Password</label>
+      </div><br>
+  
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPasswordC" formControlName="passwordC">
+        <label for="floatingPasswordC">Password di conferma</label>
+      </div><br>
+
+      <button type="submit" class="w-100 btn btn-lg btn-primary" [disabled]="!form.valid">Registrati</button>
+    
+    </div>
+</div>
+  </form>
+<br>
+  
+<p style="text-align: center;">Hai gia un account? Vai al <a aria-current="page" routerLink="/login" routerLinkActive="active" href="#">Login</a></p>
+

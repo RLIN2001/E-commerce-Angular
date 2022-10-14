@@ -1,6 +1,6 @@
 
 <br>
-<div *ngIf="!erroreDati" style="text-align: center;" class="alert alert-warning" role="alert">
+<ng-container><div *ngIf="Error==false" style="text-align: center;" class="alert alert-warning" role="alert">
   Per eseguire tutte le operazioni bisogna eseguire l'accesso! </div>
 <br><br>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -19,11 +19,17 @@
     </div>
 </div>
   </form>
-
+</ng-container>
   <br>
-  <div *ngIf="erroreDati" class="container" style="max-width: 350px;" >
+
+  <ng-container>
+    <div *ngIf="Error" class="container" style="max-width: 350px;" >
   <div class="alert alert-danger" role="alert">
     Riprova! I dati inseriti non sono corretti
   </div>
   </div>
+</ng-container>
+
+<p style="text-align: center;">Non hai un account? Vai alla <a aria-current="page" routerLink="/register" routerLinkActive="active" href="#">Registrazione</a></p>
+
 

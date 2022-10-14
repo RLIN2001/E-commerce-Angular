@@ -14,7 +14,6 @@ export class ProfiloComponent implements OnInit {
 
   subscription: Subscription;
   utente!: Utente;
-  ciao="sdf"
 
   constructor(private auth:AuthService,private router:Router,private prodottiCarrelloService:ServizioCarrelloService) { 
     this.subscription = this.auth.getUser().subscribe(val =>{ this.utente = val})

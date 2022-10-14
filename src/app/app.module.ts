@@ -12,6 +12,7 @@ import { PaginaNonTrovataComponent } from './pagina-non-trovata/pagina-non-trova
 import { LoginComponent } from './login/login.component';
 import { ProfiloComponent } from './profilo/profilo.component';
 import { FiltroPipe } from './filtro.pipe';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FiltroPipe } from './filtro.pipe';
     LoginComponent,
     ProfiloComponent,
     FiltroPipe,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
