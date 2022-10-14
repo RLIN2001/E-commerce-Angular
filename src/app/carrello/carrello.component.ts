@@ -19,6 +19,8 @@ export class CarrelloComponent implements OnInit{
   constructor(private prodottoService :ServizioService,private servizioCarrello: ServizioCarrelloService) { 
     this.subscription = this.servizioCarrello.getListaProdotti().subscribe(val =>{ this.lista = val})
     this.presenteProdotto=this.lista.length > 0 ? true : false 
+    this.totalePrezzo=this.servizioCarrello.getPrezzo()
+
 
   }
 
