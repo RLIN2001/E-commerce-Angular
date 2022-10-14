@@ -1,4 +1,4 @@
-import { isNgTemplate } from '@angular/compiler';
+import { emitDistinctChangesOnlyDefaultValue, isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -52,5 +52,11 @@ export class ServizioCarrelloService {
       tot+=item.quantita*item.prezzo
 
       return tot
+  }
+
+
+  svuotaCarrello(){
+    this.listaProdottiCarrello = []
+    this.listaProdotti.next(this.listaProdottiCarrello)
   }
 }

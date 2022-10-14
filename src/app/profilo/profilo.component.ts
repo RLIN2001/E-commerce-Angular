@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Utente } from '../dati/tipoUtenti';
 import { AuthService } from '../service/auth.service';
+import { ServizioCarrelloService } from '../service/servizio-carrello.service';
 
 @Component({
   selector: 'app-profilo',
@@ -15,7 +16,7 @@ export class ProfiloComponent implements OnInit {
   utente!: Utente;
   ciao="sdf"
 
-  constructor(private auth:AuthService,private router:Router) { 
+  constructor(private auth:AuthService,private router:Router,private prodottiCarrelloService:ServizioCarrelloService) { 
     this.subscription = this.auth.getUser().subscribe(val =>{ this.utente = val})
      
     
@@ -29,6 +30,7 @@ export class ProfiloComponent implements OnInit {
 
 
   disconnetti(){
+    this.prodottiCarrelloService.svuotaCarrello()
     this.auth.logout()
   }
 }
