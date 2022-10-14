@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Prodotto } from '../dati/tipoProdotto';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { Prodotto } from '../dati/tipoProdotto';
 
 
 export class ServizioService {
+  public ricerca= new BehaviorSubject<string>("")
 
 
    _prodotti :Prodotto[] = [
@@ -18,6 +20,8 @@ export class ServizioService {
   ]
 
 
+
+  
 
   constructor() { }
 

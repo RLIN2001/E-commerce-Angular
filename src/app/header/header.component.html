@@ -10,11 +10,8 @@
 
     <ul class="nav navbar-nav d-flex navbar-right">
       <div>
-       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+       <input class="form-control" type="search"  [(ngModel)]="ricerca" (input)="search($event)" placeholder="Search" aria-label="Search">
       </div>
-      <button class="btn btn-primary">
-        <i class="fa-solid fa-magnifying-glass"></i>           
-     </button>
       </ul>
 
     <ul class="nav navbar-nav navbar-right justify-content-end">
@@ -24,7 +21,7 @@
         </button>
         </a>
         </li>
-      <li>  <a class="navbar-brand nav-link active" aria-current="page" routerLink="/carrello" routerLinkActive="active" href="#">
+      <li>  <a class="navbar-brand nav-link active" aria-current="page" routerLink="/profilo" routerLinkActive="active" href="#">
         <button class="btn btn-primary">
           <i style="font: size 50px;" class="fas fa- regular fa-user"></i>
       </button>

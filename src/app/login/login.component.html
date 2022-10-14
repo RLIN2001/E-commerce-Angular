@@ -1,0 +1,29 @@
+
+<br>
+<div style="text-align: center;" class="alert alert-warning" role="alert">
+  Per eseguire tutte le operazioni bisogna eseguire l'accesso! </div>
+<br><br>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="container justify-content-center cont-form">
+    <h1 style="text-align:center;">Login</h1><br>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" formControlName="username">
+        <label for="floatingInput">Username</label><br>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" formControlName="password">
+        <label for="floatingPassword">Password</label>
+      </div><br><br>
+  
+      <button type="submit" class="w-100 btn btn-lg btn-primary" [disabled]="!form.valid">Accedi</button>
+    
+    </div>
+</div>
+  </form>
+
+  <br>
+  <div *ngIf="erroreDati" class="container" style="max-width: 350px;" >
+  <div class="alert alert-danger" role="alert">
+    Riprova! I dati inseriti non sono corretti
+  </div>
+  </div>
+

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prodotto } from '../dati/tipoProdotto';
+import { AuthService } from '../service/auth.service';
 import { ServizioCarrelloService } from '../service/servizio-carrello.service';
 import { ServizioService } from '../service/servizio.service';
 
@@ -12,12 +14,13 @@ export class ProdottiComponent implements OnInit {
 
   
   prodotti :Prodotto[] = []
+  ricerca=""
 
-
-  constructor(private prodottoService :ServizioService,private servizioCarrello: ServizioCarrelloService) {
+  constructor(private prodottoService :ServizioService,private servizioCarrello: ServizioCarrelloService,private auth:AuthService,private router:Router) {
     
     this.prodotti=this.prodottoService._prodotti
-
+    
+    this.prodottoService.ricerca.subscribe(val=>{this.ricerca=val})
     
    }
   
@@ -29,15 +32,20 @@ export class ProdottiComponent implements OnInit {
 
 
   incremento(item:Prodotto){
-
+    if(this.auth.loginIn)
     item.count++;
+    else
+    this.router.navigate(["/login"])
   }
 
 
 
   decremento(item:Prodotto){
-    item.count--
-  }
+    if(this.auth.loginIn)
+    item.count--;
+    else
+    this.router.navigate(["/login"])
+    }
   ngOnInit(): void {
 
   

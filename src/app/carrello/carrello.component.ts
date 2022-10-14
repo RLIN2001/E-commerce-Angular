@@ -23,7 +23,6 @@ export class CarrelloComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.totalePrezzo=this.servizioCarrello.getPrezzo()
 
   }
   ngOnChanges() {

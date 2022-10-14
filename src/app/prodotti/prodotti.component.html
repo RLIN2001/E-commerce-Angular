@@ -1,6 +1,6 @@
   <div class="lista container-fluid bg-trasparent my-4 p-3" style="position: relative;">
     <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-       <div class="col" *ngFor="let item of prodotti">
+       <div class="col" *ngFor="let item of prodotti | filtro:ricerca">
           <div class="card h-100 shadow-sm">
              <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="..."> 
              <div class="card-body">

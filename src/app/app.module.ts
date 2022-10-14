@@ -7,8 +7,11 @@ import { ProvaComponent } from './prova/prova.component';
 import { CarrelloComponent } from './carrello/carrello.component';
 import { HeaderComponent } from './header/header.component';
 import { ProdottiComponent } from './prodotti/prodotti.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginaNonTrovataComponent } from './pagina-non-trovata/pagina-non-trovata.component';
+import { LoginComponent } from './login/login.component';
+import { ProfiloComponent } from './profilo/profilo.component';
+import { FiltroPipe } from './filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { PaginaNonTrovataComponent } from './pagina-non-trovata/pagina-non-trova
     CarrelloComponent,
     HeaderComponent,
     ProdottiComponent,
-    PaginaNonTrovataComponent
+    PaginaNonTrovataComponent,
+    LoginComponent,
+    ProfiloComponent,
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
